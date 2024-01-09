@@ -11,6 +11,6 @@ public class NewTopicController {
     @PostMapping
     public void newTopic(@RequestBody DataNewTopic dataNewTopic){
         System.out.println("new topic");
-        System.out.println(dataNewTopic);
+        System.out.println(dataNewTopic.author());
     }
 }

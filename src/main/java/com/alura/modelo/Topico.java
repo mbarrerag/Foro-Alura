@@ -1,18 +1,41 @@
 package com.alura.modelo;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Entity
+@Table(name = "topic")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Topico {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String titulo;
 	private String mensaje;
 	private LocalDateTime fechaCreacion = LocalDateTime.now();
+	@Enumerated(EnumType.STRING)
 	private StatusTopico status = StatusTopico.NO_RESPONDIDO;
+    @ManyToOne
+	@JoinColumn(name = "autor_id")
 	private Usuario autor;
+
+	@ManyToOne
+	@JoinColumn(name = "curso_id")
 	private Curso curso;
+	@OneToMany(mappedBy = "topic")
+
 	private List<Respuesta> respuestas = new ArrayList<>();
 
 	public Topico(String titulo, String mensaje, Curso curso) {
@@ -20,6 +43,7 @@ public class Topico {
 		this.mensaje = mensaje;
 		this.curso = curso;
 	}
+
 
 	@Override
 	public int hashCode() {
@@ -46,68 +70,11 @@ public class Topico {
 		return true;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getTitulo() {
-		return titulo;
+	public Long getId() {
+		return id;
 	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public String getMensaje() {
-		return mensaje;
-	}
-
-	public void setMensaje(String mensaje) {
-		this.mensaje = mensaje;
-	}
-
-	public LocalDateTime getfechaCreacion() {
-		return fechaCreacion;
-	}
-
-	public void setfechaCreacion(LocalDateTime fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
-	}
-
-	public StatusTopico getStatus() {
-		return status;
-	}
-
-	public void setStatus(StatusTopico status) {
-		this.status = status;
-	}
-
-	public Usuario getAutor() {
-		return autor;
-	}
-
-	public void setAutor(Usuario autor) {
-		this.autor = autor;
-	}
-
-	public Curso getCurso() {
-		return curso;
-	}
-
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
-
-	public List<Respuesta> getRespuestas() {
-		return respuestas;
-	}
-
-	public void setRespuestas(List<Respuesta> respuestas) {
-		this.respuestas = respuestas;
-	}
-
 }

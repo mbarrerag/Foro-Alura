@@ -1,7 +1,20 @@
 package com.alura.modelo;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+
+@Entity
+@Table(name = "user")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Usuario {
 
+	@Id
 	private Long id;
 	private String nombre;
 	private String email;
@@ -32,36 +45,11 @@ public class Usuario {
 		return true;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public Long getId() {
+		return id;
 	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getContrasena() {
-		return contrasena;
-	}
-
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
-	}
-
 }
