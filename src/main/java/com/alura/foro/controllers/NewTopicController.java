@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.*;
 public class NewTopicController {
 
 
-    @Autowired
-    private TopicoRepository topicRepository;
+    @Autowired(required = false)
+    private TopicoRepository topicoRepository;
 
     @PostMapping
     public void newTopic(@RequestBody DataNewTopic dataNewTopic){
         System.out.println("new topic");
         System.out.println(dataNewTopic.author());
-        topicRepository.save(new Topico(dataNewTopic));
+        topicoRepository.save(new Topico(dataNewTopic));
     }
 }
