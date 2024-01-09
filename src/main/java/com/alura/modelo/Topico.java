@@ -30,12 +30,11 @@ public class Topico {
     @ManyToOne
 	@JoinColumn(name = "autor_id")
 	private Usuario autor;
-
 	@ManyToOne
 	@JoinColumn(name = "curso_id")
 	private Curso curso;
-	@OneToMany(mappedBy = "topic")
 
+	@OneToMany(mappedBy = "topic")
 	private List<Respuesta> respuestas = new ArrayList<>();
 
 	public Topico(String titulo, String mensaje, Curso curso) {
