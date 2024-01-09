@@ -1,5 +1,6 @@
 package com.alura.modelo;
 
+import com.alura.foro.newtopic.CourseNewTopic;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -24,7 +25,12 @@ public class Curso {
 		this.nombre = nombre;
 		this.categoria = categoria;
 	}
-	
+
+	public Curso(CourseNewTopic curse) {
+		this.nombre = curse.name();
+		this.categoria = curse.category();
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

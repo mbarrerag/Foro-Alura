@@ -1,4 +1,4 @@
 package com.alura.foro.newtopic;
 
-public record DataNewTopic(String tittle, String menssaje, String author, CourseNewTopic curse){
+public record DataNewTopic(String tittle, String menssage, String author, CourseNewTopic curse){
 }

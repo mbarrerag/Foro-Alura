@@ -20,6 +20,9 @@ public class Usuario {
 	private String email;
 	private String contrasena;
 
+	public Usuario(String author) {
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

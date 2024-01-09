@@ -1,5 +1,6 @@
 package com.alura.modelo;
 
+import com.alura.foro.newtopic.DataNewTopic;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -34,13 +35,21 @@ public class Topico {
 	@JoinColumn(name = "curso_id")
 	private Curso curso;
 
-	@OneToMany(mappedBy = "topic")
-	private List<Respuesta> respuestas = new ArrayList<>();
+//	@OneToMany(mappedBy = "topic")
+//	private List<Respuesta> respuestas = new ArrayList<>();
 
 	public Topico(String titulo, String mensaje, Curso curso) {
 		this.titulo = titulo;
 		this.mensaje = mensaje;
 		this.curso = curso;
+	}
+
+	public Topico(DataNewTopic dataNewTopic) {
+		this.titulo = dataNewTopic.tittle();
+		this.mensaje = dataNewTopic.menssage();
+		this.curso = new Curso(dataNewTopic.curse());
+		this.autor = new Usuario(dataNewTopic.author());
+
 	}
 
 
