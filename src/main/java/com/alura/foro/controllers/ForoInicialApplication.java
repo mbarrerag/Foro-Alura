@@ -5,7 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.alura")
+@ComponentScan(basePackages =
+		"com.alura.modelo")
 
 public class ForoInicialApplication {
 

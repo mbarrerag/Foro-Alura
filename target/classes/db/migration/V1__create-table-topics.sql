@@ -1,10 +1,9 @@
-
+USE foroalurabd;
 CREATE TABLE course (
                         id BIGINT PRIMARY KEY,
                         nombre VARCHAR(255),
                         categoria VARCHAR(255)
 );
-
 
 CREATE TABLE user (
                       id BIGINT PRIMARY KEY,
