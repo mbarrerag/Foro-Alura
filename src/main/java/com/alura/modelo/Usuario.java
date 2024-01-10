@@ -1,5 +1,6 @@
 package com.alura.modelo;
 
+import com.alura.foro.newtopic.UserNew;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,18 +10,24 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "user")
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
 
 public class Usuario {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
 	private String email;
 	private String contrasena;
 
-	public Usuario(String author) {
+	public Usuario() {
+	}
+
+	public Usuario(UserNew dataUser) {
+		this.nombre = dataUser.name();
+		this.email = dataUser.email();
+		this.contrasena = dataUser.password();
 	}
 
 	@Override

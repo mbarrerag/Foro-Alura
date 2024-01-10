@@ -48,7 +48,7 @@ public class Topico {
 		this.titulo = dataNewTopic.tittle();
 		this.mensaje = dataNewTopic.menssage();
 		this.curso = new Curso(dataNewTopic.curse());
-		this.autor = new Usuario(dataNewTopic.author());
+	//	this.autor = new Usuario(dataNewTopic.author());
 
 	}
 
