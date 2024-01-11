@@ -1,11 +1,9 @@
 package com.alura.foro.controllers;
 
-import com.alura.foro.newtopic.DataNewTopic;
-import com.alura.foro.newtopic.UserNew;
-import com.alura.modelo.Topico;
-import com.alura.modelo.TopicoRepository;
-import com.alura.modelo.UserRepository;
+import com.alura.foro.records.UserNew;
+import com.alura.foro.repository.UserRepository;
 import com.alura.modelo.Usuario;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/newuser")
 public class NewUser {
+
+    @Autowired
     private UserRepository userRepository;
 
 

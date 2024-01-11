@@ -1,7 +1,6 @@
 package com.alura.modelo;
 
-import com.alura.foro.newtopic.CourseNewTopic;
-import jakarta.persistence.Embeddable;
+import com.alura.foro.records.CourseNewTopic;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;

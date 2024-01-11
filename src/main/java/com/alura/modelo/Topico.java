@@ -1,6 +1,6 @@
 package com.alura.modelo;
 
-import com.alura.foro.newtopic.DataNewTopic;
+import com.alura.foro.records.DataNewTopic;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -8,8 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Entity

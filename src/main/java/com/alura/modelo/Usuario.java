@@ -1,10 +1,9 @@
 package com.alura.modelo;
 
-import com.alura.foro.newtopic.UserNew;
+import com.alura.foro.records.UserNew;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 
 @Entity

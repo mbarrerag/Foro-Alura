@@ -3,10 +3,11 @@ package com.alura.foro.controllers;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackages =
-		"com.alura.modelo")
+@EnableJpaRepositories(basePackages = {"com.alura.modelo"})
+@ComponentScan(basePackages = "com.alura")
 
 public class ForoInicialApplication {
 
