@@ -14,6 +14,7 @@ import lombok.Getter;
 public class Usuario {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
 	private String email;
@@ -23,10 +24,10 @@ public class Usuario {
 	}
 
 	public Usuario(UserNew dataUser) {
-		this.id = dataUser.id();
-		this.nombre = dataUser.name();
+		this.id =  dataUser.id();
+		this.nombre = dataUser.nombre();
 		this.email = dataUser.email();
-		this.contrasena = dataUser.password();
+		this.contrasena = dataUser.contrasena();
 	}
 
 	@Override
@@ -60,5 +61,21 @@ public class Usuario {
 
 	public Long getId() {
 		return id;
+	}
+
+	public Usuario getById(Long id) {
+		return this;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getContrasena() {
+		return contrasena;
 	}
 }

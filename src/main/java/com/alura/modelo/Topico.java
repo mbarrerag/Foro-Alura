@@ -1,9 +1,10 @@
 package com.alura.modelo;
 
 import com.alura.foro.records.DataNewTopic;
+import com.alura.foro.repository.CurseRepository;
+import com.alura.foro.repository.UserRepository;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+
 public class Topico {
 
 	@Id
@@ -35,18 +36,21 @@ public class Topico {
 //	@OneToMany(mappedBy = "topic")
 //	private List<Respuesta> respuestas = new ArrayList<>();
 
-	public Topico(String titulo, String mensaje, Curso curso) {
-		this.titulo = titulo;
-		this.mensaje = mensaje;
-		this.curso = curso;
-	}
 
-	public Topico(DataNewTopic dataNewTopic) {
+	public Topico(DataNewTopic dataNewTopic, UserRepository usuarioRepository, CurseRepository cursoRepository) {
 		this.titulo = dataNewTopic.tittle();
 		this.mensaje = dataNewTopic.menssage();
-		this.curso = new Curso(dataNewTopic.curse());
-	//	this.autor = new Usuario(dataNewTopic.author());
+		this.curso = getCourseById(dataNewTopic.curse(), cursoRepository);
+		this.autor = getUserById(dataNewTopic.author(), usuarioRepository);
+	}
 
+	private Usuario getUserById(Long userId, UserRepository usuarioRepository) {
+		return usuarioRepository.findById(userId).orElse(null);
+	}
+
+
+	private Curso getCourseById(Long cursoId, CurseRepository cursoRepository) {
+		return cursoRepository.findById(cursoId).orElse(null);
 	}
 
 

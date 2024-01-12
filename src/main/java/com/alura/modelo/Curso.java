@@ -2,11 +2,13 @@ package com.alura.modelo;
 
 import com.alura.foro.records.CourseNewTopic;
 import jakarta.persistence.Entity;
+
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
 
 @Entity
 @Table(name = "course")
@@ -16,6 +18,7 @@ import lombok.NoArgsConstructor;
 public class Curso {
 
 	@Id
+
 	private Long id;
 	private String nombre;
 	private String categoria;
@@ -61,4 +64,9 @@ public class Curso {
 	public Long getId() {
 		return id;
 	}
+
+	public Curso getCurseById( Long id) {
+		return this;
+	}
 }
+

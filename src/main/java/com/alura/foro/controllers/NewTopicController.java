@@ -2,9 +2,12 @@ package com.alura.foro.controllers;
 
 
 import com.alura.foro.records.DataNewTopic;
+import com.alura.foro.repository.CurseRepository;
+import com.alura.foro.repository.UserRepository;
+import com.alura.modelo.Curso;
 import com.alura.modelo.Topico;
 import com.alura.foro.repository.TopicoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.alura.modelo.Usuario;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.bind.annotation.*;
@@ -17,16 +20,24 @@ public class NewTopicController {
 
 
     private final TopicoRepository topicoRepository;
+    private final UserRepository userRepository;
+    private final CurseRepository curseRepository;
 
     // Constructor para inyectar TopicoRepository
-    public NewTopicController(TopicoRepository topicoRepository) {
+    public NewTopicController(TopicoRepository topicoRepository, UserRepository userRepository, CurseRepository curseRepository) {
         this.topicoRepository = topicoRepository;
+        this.userRepository = userRepository;
+        this.curseRepository = curseRepository;
     }
 
     @PostMapping
     public void newTopic(@RequestBody DataNewTopic dataNewTopic){
         System.out.println("new topic");
         System.out.println(dataNewTopic.author());
-        topicoRepository.save(new Topico(dataNewTopic));
+        //System.out.println(new Topico(dataNewTopic).getAutor() + " " + new Topico(dataNewTopic).getTitulo() );
+        Usuario usuario = userRepository.getById(dataNewTopic.author());
+        Curso curso = curseRepository.getById(dataNewTopic.curse());
+
+        topicoRepository.save(new Topico(dataNewTopic, (UserRepository) usuario, (CurseRepository) curso));
     }
 }

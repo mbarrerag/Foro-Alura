@@ -29,7 +29,8 @@ public class NewUser {
     @PostMapping
     public void newTopic(@RequestBody UserNew dataUser){
         System.out.println("new topic");
-        System.out.println(dataUser.name());
+        Usuario usuario = new Usuario(dataUser);
+        System.out.println( usuario.getNombre()+ " " + usuario.getEmail() + " " + usuario.getContrasena());
         userRepository.save(new Usuario(dataUser));
 
     }
