@@ -37,7 +37,9 @@ public class NewTopicController {
         //System.out.println(new Topico(dataNewTopic).getAutor() + " " + new Topico(dataNewTopic).getTitulo() );
         Usuario usuario = userRepository.getById(dataNewTopic.author());
         Curso curso = curseRepository.getById(dataNewTopic.curse());
+        System.out.println( "aa"+curso.getNombre());
 
-        topicoRepository.save(new Topico(dataNewTopic, (UserRepository) usuario, (CurseRepository) curso));
+        topicoRepository.save(new Topico(dataNewTopic, usuario, curso));
+
     }
 }

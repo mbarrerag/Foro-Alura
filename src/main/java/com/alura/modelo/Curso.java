@@ -29,7 +29,7 @@ public class Curso {
 	}
 
 	public Curso(CourseNewTopic curse) {
-		this.nombre = curse.name();
+		this.id = curse.id();
 		this.categoria = curse.category();
 	}
 

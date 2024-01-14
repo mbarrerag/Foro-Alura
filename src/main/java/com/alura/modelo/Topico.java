@@ -37,11 +37,12 @@ public class Topico {
 //	private List<Respuesta> respuestas = new ArrayList<>();
 
 
-	public Topico(DataNewTopic dataNewTopic, UserRepository usuarioRepository, CurseRepository cursoRepository) {
+	public Topico(DataNewTopic dataNewTopic, Usuario usuario, Curso curso) {
+		this.id = dataNewTopic.id();
 		this.titulo = dataNewTopic.tittle();
 		this.mensaje = dataNewTopic.menssage();
-		this.curso = getCourseById(dataNewTopic.curse(), cursoRepository);
-		this.autor = getUserById(dataNewTopic.author(), usuarioRepository);
+		this.curso = curso;
+		this.autor = usuario;
 	}
 
 	private Usuario getUserById(Long userId, UserRepository usuarioRepository) {
