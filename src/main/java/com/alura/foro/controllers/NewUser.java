@@ -30,7 +30,7 @@ public class NewUser {
     public void newTopic(@RequestBody UserNew dataUser){
         System.out.println("new topic");
         Usuario usuario = new Usuario(dataUser);
-        System.out.println( usuario.getNombre()+ " " + usuario.getEmail() + " " + usuario.getContrasena());
+        System.out.println( "aa"+usuario.getId());
         userRepository.save(new Usuario(dataUser));
 
     }
