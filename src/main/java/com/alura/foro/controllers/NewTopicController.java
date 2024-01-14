@@ -8,6 +8,7 @@ import com.alura.modelo.Curso;
 import com.alura.modelo.Topico;
 import com.alura.foro.repository.TopicoRepository;
 import com.alura.modelo.Usuario;
+import jakarta.validation.Valid;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +32,7 @@ public class NewTopicController {
     }
 
     @PostMapping
-    public void newTopic(@RequestBody DataNewTopic dataNewTopic){
+    public void newTopic(@RequestBody @Valid DataNewTopic dataNewTopic){
         System.out.println("new topic");
         System.out.println(dataNewTopic.author());
         //System.out.println(new Topico(dataNewTopic).getAutor() + " " + new Topico(dataNewTopic).getTitulo() );

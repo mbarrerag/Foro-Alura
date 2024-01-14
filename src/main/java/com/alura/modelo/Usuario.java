@@ -2,6 +2,7 @@ package com.alura.modelo;
 
 import com.alura.foro.records.UserNew;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -16,8 +17,11 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotBlank
 	private String nombre;
+	@NotBlank
 	private String email;
+	@NotBlank
 	private String contrasena;
 
 	public Usuario() {

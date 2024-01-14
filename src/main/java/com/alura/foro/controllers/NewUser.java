@@ -4,6 +4,7 @@ import com.alura.foro.records.UserNew;
 import com.alura.foro.repository.UserRepository;
 import com.alura.modelo.Topico;
 import com.alura.modelo.Usuario;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -27,7 +28,7 @@ public class NewUser {
     }
 
     @PostMapping
-    public void newUser(@RequestBody UserNew dataUser){
+    public void newUser(@RequestBody @Valid UserNew dataUser){
         System.out.println("new topic");
         Usuario usuario = new Usuario(dataUser);
         System.out.println( "aa"+usuario.getId());

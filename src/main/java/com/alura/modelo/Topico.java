@@ -4,6 +4,9 @@ import com.alura.foro.records.DataNewTopic;
 import com.alura.foro.repository.CurseRepository;
 import com.alura.foro.repository.UserRepository;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,17 +23,24 @@ import java.time.LocalDateTime;
 public class Topico {
 
 	@Id
+  	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotBlank
 	private String titulo;
+	@NotBlank
 	private String mensaje;
 	private LocalDateTime fechaCreacion = LocalDateTime.now();
 	@Enumerated(EnumType.STRING)
 	private StatusTopico status = StatusTopico.NO_RESPONDIDO;
     @ManyToOne
 	@JoinColumn(name = "autor_id")
+	@NotNull
+	@Valid
 	private Usuario autor;
 	@ManyToOne
 	@JoinColumn(name = "curso_id")
+	@NotNull
+	@Valid
 	private Curso curso;
 
 //	@OneToMany(mappedBy = "topic")
@@ -38,7 +48,6 @@ public class Topico {
 
 
 	public Topico(DataNewTopic dataNewTopic, Usuario usuario, Curso curso) {
-		this.id = dataNewTopic.id();
 		this.titulo = dataNewTopic.tittle();
 		this.mensaje = dataNewTopic.menssage();
 		this.curso = curso;
@@ -80,11 +89,4 @@ public class Topico {
 		return true;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getId() {
-		return id;
-	}
 }

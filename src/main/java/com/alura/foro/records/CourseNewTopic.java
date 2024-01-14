@@ -1,4 +1,6 @@
 package com.alura.foro.records;
 
-public record CourseNewTopic( String name, String category) {
+import jakarta.validation.constraints.NotNull;
+
+public record CourseNewTopic(@NotNull String name, @NotNull String category) {
 }
