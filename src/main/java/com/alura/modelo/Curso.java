@@ -1,10 +1,8 @@
 package com.alura.modelo;
 
 import com.alura.foro.records.CourseNewTopic;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,25 +11,29 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "course")
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Curso {
 
 	@Id
-
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
 	private String categoria;
 
-	public Curso(String nombre, String categoria) {
-		this.nombre = nombre;
-		this.categoria = categoria;
+
+
+
+
+	public Curso( CourseNewTopic curse ) {
+		this.nombre = curse.name();
+		this.categoria = curse.category();
+
 	}
 
-	public Curso(CourseNewTopic curse) {
-		this.id = curse.id();
-		this.categoria = curse.category();
+	public Curso() {
+
 	}
+
 
 	@Override
 	public int hashCode() {

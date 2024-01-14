@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/newuser")
-
 @EntityScan(basePackageClasses = Usuario.class)
+
 public class NewUser {
 
 
@@ -27,7 +27,7 @@ public class NewUser {
     }
 
     @PostMapping
-    public void newTopic(@RequestBody UserNew dataUser){
+    public void newUser(@RequestBody UserNew dataUser){
         System.out.println("new topic");
         Usuario usuario = new Usuario(dataUser);
         System.out.println( "aa"+usuario.getId());

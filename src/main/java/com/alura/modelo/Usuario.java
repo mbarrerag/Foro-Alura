@@ -14,6 +14,7 @@ import lombok.Getter;
 public class Usuario {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
 	private String email;
@@ -23,7 +24,7 @@ public class Usuario {
 	}
 
 	public Usuario(UserNew dataUser) {
-		this.id =  dataUser.id();
+
 		this.nombre = dataUser.nombre();
 		this.email = dataUser.email();
 		this.contrasena = dataUser.contrasena();
