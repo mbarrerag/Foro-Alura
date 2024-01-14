@@ -43,8 +43,8 @@ public class Topico {
 	@Valid
 	private Curso curso;
 
-//	@OneToMany(mappedBy = "topic")
-//	private List<Respuesta> respuestas = new ArrayList<>();
+   //@OneToMany(mappedBy = "topic")
+   //private List<Respuesta> respuestas = new ArrayList<>();
 
 
 	public Topico(DataNewTopic dataNewTopic, Usuario usuario, Curso curso) {

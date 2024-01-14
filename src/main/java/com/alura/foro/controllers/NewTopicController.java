@@ -11,7 +11,10 @@ import com.alura.modelo.Usuario;
 import jakarta.validation.Valid;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/newtopics")
@@ -33,14 +36,16 @@ public class NewTopicController {
 
     @PostMapping
     public void newTopic(@RequestBody @Valid DataNewTopic dataNewTopic){
-        System.out.println("new topic");
-        System.out.println(dataNewTopic.author());
-        //System.out.println(new Topico(dataNewTopic).getAutor() + " " + new Topico(dataNewTopic).getTitulo() );
         Usuario usuario = userRepository.getById(dataNewTopic.author());
         Curso curso = curseRepository.getById(dataNewTopic.curse());
         System.out.println( "aa"+curso.getNombre());
 
         topicoRepository.save(new Topico(dataNewTopic, usuario, curso));
 
+    }
+
+    @GetMapping
+    public List<Topico> getTopics(){
+        return topicoRepository.findAll();
     }
 }

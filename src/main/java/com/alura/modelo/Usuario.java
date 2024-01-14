@@ -22,6 +22,8 @@ public class Usuario {
 	@NotBlank
 	private String email;
 	@NotBlank
+	private String phone;
+	@NotBlank
 	private String contrasena;
 
 	public Usuario() {
@@ -32,6 +34,7 @@ public class Usuario {
 		this.nombre = dataUser.nombre();
 		this.email = dataUser.email();
 		this.contrasena = dataUser.contrasena();
+		this.phone = dataUser.phoneNumber();
 	}
 
 	@Override
