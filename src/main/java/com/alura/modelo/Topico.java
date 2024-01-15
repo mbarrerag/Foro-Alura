@@ -1,8 +1,8 @@
 package com.alura.modelo;
-
-import com.alura.foro.records.DataNewTopic;
 import com.alura.foro.repository.CurseRepository;
 import com.alura.foro.repository.UserRepository;
+import com.alura.foro.records.DataNewTopic;
+import com.alura.foro.records.UpdateTopic;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -12,7 +12,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 
 @Entity
@@ -92,5 +91,24 @@ public class Topico {
 
 	public LocalDateTime getFecha_creacion() {
 		return fechaCreacion;
+	}
+
+
+	public void upDateData(UpdateTopic updateTopic, Usuario usuario, Curso curso) {
+		System.out.println("updateTopic.id() = " + updateTopic.id());
+		/*The validation allows that if a user don't specify a fild persist the brevious information*/
+		this.id = updateTopic.id();
+		if (updateTopic.tittle() != null) {
+			this.titulo = updateTopic.tittle();
+		}
+		if (updateTopic.menssage() != null) {
+			this.mensaje = updateTopic.menssage();
+		}
+		if (updateTopic.curse() != null) {
+			this.curso = curso;
+		}
+		if (updateTopic.author() != null) {
+			this.autor = usuario;
+		}
 	}
 }

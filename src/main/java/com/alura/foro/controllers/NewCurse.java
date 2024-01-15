@@ -28,9 +28,7 @@ public class NewCurse {
 
     @PostMapping
     public void newCourse(@RequestBody @Valid CourseNewTopic dataCourse){
-        System.out.println("new topic");
         Curso curso = new Curso(dataCourse);
-        System.out.println( "aa"+curso.getId());
         curseRepository.save(new Curso(dataCourse));
     }
 

@@ -21,11 +21,12 @@ public class NewUser {
 
 
     private final UserRepository userRepository;
-
-    // Constructor para inyectar TopicoRepository
     public NewUser(UserRepository userRepository) {
+
         this.userRepository = userRepository;
+
     }
+
 
     @PostMapping
     public void newUser(@RequestBody @Valid UserNew dataUser){
