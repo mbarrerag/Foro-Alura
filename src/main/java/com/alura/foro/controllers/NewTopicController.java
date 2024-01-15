@@ -2,6 +2,7 @@ package com.alura.foro.controllers;
 
 
 import com.alura.foro.records.DataNewTopic;
+import com.alura.foro.records.GetTopicRepository;
 import com.alura.foro.repository.CurseRepository;
 import com.alura.foro.repository.UserRepository;
 import com.alura.modelo.Curso;
@@ -10,8 +11,10 @@ import com.alura.foro.repository.TopicoRepository;
 import com.alura.modelo.Usuario;
 import jakarta.validation.Valid;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.http.ResponseEntity;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,14 +41,16 @@ public class NewTopicController {
     public void newTopic(@RequestBody @Valid DataNewTopic dataNewTopic){
         Usuario usuario = userRepository.getById(dataNewTopic.author());
         Curso curso = curseRepository.getById(dataNewTopic.curse());
-        System.out.println( "aa"+curso.getNombre());
 
-        topicoRepository.save(new Topico(dataNewTopic, usuario, curso));
-
+        if ((usuario != null && curso != null)) {
+            topicoRepository.save(new Topico(dataNewTopic, usuario, curso));
+        } else {
+            System.out.println("usuario no encontrado");
+        }
     }
 
-    @GetMapping
-    public List<Topico> getTopics(){
-        return topicoRepository.findAll();
+    @GetMapping("/all")
+    public Page<GetTopicRepository> getTopics(@PageableDefault(size = 2) Pageable pageable){
+        return topicoRepository.findAll(pageable).map(GetTopicRepository::new);
     }
 }

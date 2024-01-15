@@ -12,6 +12,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 
 @Entity
@@ -89,4 +90,7 @@ public class Topico {
 		return true;
 	}
 
+	public LocalDateTime getFecha_creacion() {
+		return fechaCreacion;
+	}
 }
