@@ -53,7 +53,8 @@ public class NewTopicController {
 
     @GetMapping("/all")
     public Page<GetTopicRepository> getTopics(@PageableDefault(size = 2) Pageable pageable) {
-        return topicoRepository.findAll(pageable).map(GetTopicRepository::new);
+        /* Form to make a query implicit into the Repository*/
+        return topicoRepository.findByActiveTrue(pageable).map(GetTopicRepository::new);
     }
 //    @GetMapping("/all/{id}")
 //    public Optional<GetTopicRepository> getTopics(@PathVariable Long id){
@@ -81,5 +82,23 @@ public class NewTopicController {
         System.out.println("update topic");
         topico.upDateData(updateTopic, usuario, curso);
     }
+
+
+    /*Logical deleted*/
+    @Transactional
+   @DeleteMapping("/all/deleted/{id}")
+    public void deletedTopic(@PathVariable Long id){
+        Topico topico = topicoRepository.getReferenceById(id);
+        /*Logic deleted*/
+        topico.desactiveTopic();
+    }
+
+//      Physical deleted
+//    @Transactional
+//    @DeleteMapping("/all/deleted")
+//    public void deletedTopic(@RequestBody @Valid UpdateTopic updateTopic){
+//        Topico topico = topicoRepository.getReferenceById(updateTopic.id());
+//        topicoRepository.delete(topico);
+//    }
 }
 

@@ -32,6 +32,7 @@ public class Topico {
 	private LocalDateTime fechaCreacion = LocalDateTime.now();
 	@Enumerated(EnumType.STRING)
 	private StatusTopico status = StatusTopico.NO_RESPONDIDO;
+	private Boolean active;
     @ManyToOne
 	@JoinColumn(name = "autor_id")
 	@NotNull
@@ -48,10 +49,12 @@ public class Topico {
 
 
 	public Topico(DataNewTopic dataNewTopic, Usuario usuario, Curso curso) {
+		this.active = true;
 		this.titulo = dataNewTopic.tittle();
 		this.mensaje = dataNewTopic.menssage();
 		this.curso = curso;
 		this.autor = usuario;
+
 	}
 
 	private Usuario getUserById(Long userId, UserRepository usuarioRepository) {
@@ -63,6 +66,10 @@ public class Topico {
 		return cursoRepository.findById(cursoId).orElse(null);
 	}
 
+
+	public void desactiveTopic() {
+		this.active = false;
+	}
 
 	@Override
 	public int hashCode() {
