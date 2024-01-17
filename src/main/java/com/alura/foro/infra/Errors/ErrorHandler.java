@@ -1,4 +1,4 @@
-package com.alura.foro.infra;
+package com.alura.foro.infra.Errors;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ConstraintViolationException;
