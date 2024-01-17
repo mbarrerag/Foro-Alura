@@ -34,11 +34,17 @@ By the end of this sprint, our REST API will have the following features:
 The API follows RESTful conventions. Here are some of the key routes:
 
 POST /api/newtopics: Create a new topic
+<hr>
 GET /api/topics: Display all topics
+<hr>
 GET /api/newtopics/all/{id} Display a specific topic by ID
+<hr>
 PUT /api/newtopics/all/update: Update a topic by ID, add in the payload the information about the user to update
+<hr>
 DELETE /api/topics/{id}: Delete a topic by ID
+<hr>
 POST /api/newuser: Add a new user
+<hr>
 POST /api/newcourse: Add a new course
 
 ## Getting Started
