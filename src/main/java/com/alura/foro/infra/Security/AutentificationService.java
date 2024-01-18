@@ -1,6 +1,7 @@
 package com.alura.foro.infra.Security;
 
 import com.alura.foro.repository.UserRepository;
+import jdk.swing.interop.SwingInterOpUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,6 +18,7 @@ public class AutentificationService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String nombre) throws UsernameNotFoundException {
+        System.out.println( userRepository.findByNombre(nombre));
         return userRepository.findByNombre(nombre);
     }
 
