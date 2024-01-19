@@ -24,7 +24,7 @@ public class TokenService {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
             return JWT.create()
-                    .withIssuer("Foro-Alura").withSubject(usuario.getNombre()).withClaim("id", usuario.getId())
+                    .withIssuer("Foro-Alura").withSubject(usuario.getEmail()).withClaim("id", usuario.getId())
                     .withExpiresAt(getExpirationTime())
                     .sign(algorithm);
         } catch (JWTCreationException exception) {
@@ -43,12 +43,16 @@ public class TokenService {
              verifier = JWT.require(algorithm).withIssuer("Foro-Alura")
                     .build().verify(token);
 
+
         } catch (JWTCreationException exception) {
-            throw new RuntimeException("Error al crear el token");
+            throw new RuntimeException("Error al decodificar el token", exception);
         }
         if (verifier == null) {
-            throw new RuntimeException("Error al crear el token");
+            throw new RuntimeException("Error al decodificar el token");
         }
+        System.out.println("Token Before Verification: " + token);
+        System.out.println("subject"+verifier.getSubject());
+
         return verifier.getSubject();
     }
 }
