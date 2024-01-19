@@ -37,6 +37,9 @@ public class TokenService {
     }
 
     public String getSubject(String token) {
+        if (token == null || token.isEmpty()) {
+            throw new RuntimeException("Error al decodificar el token");
+        }
         DecodedJWT verifier = null;
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
