@@ -31,7 +31,7 @@ By the end of this sprint, our REST API will have the following features:
 
 ## SpringDocs
 
-All the information of the API will be in the path adding by SpringDocs
+All the documentation of the API will be in the next path:
 http://localhost:8180/swagger-ui/index.html
 
 ## API Routes
