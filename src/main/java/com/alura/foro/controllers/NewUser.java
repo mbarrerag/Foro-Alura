@@ -4,6 +4,7 @@ import com.alura.foro.records.UserNew;
 import com.alura.foro.repository.UserRepository;
 import com.alura.modelo.Topico;
 import com.alura.modelo.Usuario;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/newuser")
 @EntityScan(basePackageClasses = Usuario.class)
+@SecurityRequirement(name = "bearer-key")
 
 public class NewUser {
 

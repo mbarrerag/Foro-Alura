@@ -11,6 +11,7 @@ import com.alura.modelo.Curso;
 import com.alura.modelo.Topico;
 import com.alura.foro.repository.TopicoRepository;
 import com.alura.modelo.Usuario;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -29,6 +30,7 @@ import java.util.Optional;
 @RequestMapping("/newtopics")
 @EnableJpaRepositories(basePackages = "com.alura.foro.repository")
 @EntityScan(basePackageClasses = Topico.class)
+@SecurityRequirement(name = "bearer-key")
 public class NewTopicController {
 
 
