@@ -29,6 +29,11 @@ By the end of this sprint, our REST API will have the following features:
 - Validations performed according to business rules
 - Implementation of a database for data persistence
 
+## SpringDocs
+
+All the information of the API will be in the path adding by SpringDocs
+http://localhost:8180/swagger-ui/index.html
+
 ## API Routes
 
 The API follows RESTful conventions. Here are some of the key routes:
