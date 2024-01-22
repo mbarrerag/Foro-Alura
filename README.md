@@ -8,6 +8,10 @@ Now that we know what the forum is for and how it looks, let's dive into how it 
 
 Our challenge is to replicate this process at the backend level, creating a REST API using Spring.
 
+I use the DTO pattern to create the API, and I use the Spring Data JPA to persist the data in a MySQL database.
+The records set the types of elements that receive the data, and the DTOs are the objects that will be sent to the API.
+And the Repository is the interface that will be responsible for the persistence of the data.
+Besides that the model is the entity that will be persisted in the database.
 ## Project Overview
 
 Our API will specifically focus on topics and must allow users to:

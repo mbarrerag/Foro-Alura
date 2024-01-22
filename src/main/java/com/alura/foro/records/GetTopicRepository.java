@@ -9,6 +9,6 @@ import java.util.Date;
 public record GetTopicRepository(Long id, String titulo, String mensaje, LocalDateTime fecha_creacion, String status, Long autor, Long curso) {
 
     public GetTopicRepository(Topico topico) {
-        this(topico.getId(), topico.getTitulo(), topico.getMensaje(), topico.getFecha_creacion(), topico.getStatus().name(), topico.getAutor().getId(), topico.getCurso().getId());
+        this(topico.getId(), topico.getTitulo(), topico.getMensaje(), topico.getFechaCreacion(), topico.getStatus().name(), topico.getAutor().getId(), topico.getCurso().getId());
     }
 }

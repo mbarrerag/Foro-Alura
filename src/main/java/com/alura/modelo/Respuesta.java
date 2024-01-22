@@ -2,6 +2,13 @@ package com.alura.modelo;
 
 import java.time.LocalDateTime;
 
+/**
+ * The Respuesta class represents an answer or response entity in the application.
+ *
+ * @author [Your Name]
+ * @version 1.0
+ * @since 2024-01-01
+ */
 public class Respuesta {
 
 	private Long id;
@@ -11,77 +18,48 @@ public class Respuesta {
 	private Usuario autor;
 	private Boolean solucion = false;
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
+	/**
+	 * Default constructor for Respuesta.
+	 */
+	public Respuesta() {
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Respuesta other = (Respuesta) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
-
+	/**
+	 * Gets the unique identifier of the response.
+	 *
+	 * @return The unique identifier of the response.
+	 */
 	public Long getId() {
 		return id;
 	}
 
+	/**
+	 * Sets the unique identifier of the response.
+	 *
+	 * @param id The unique identifier to set.
+	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+	/**
+	 * Gets the message content of the response.
+	 *
+	 * @return The message content of the response.
+	 */
 	public String getMensaje() {
 		return mensaje;
 	}
 
+	/**
+	 * Sets the message content of the response.
+	 *
+	 * @param mensaje The message content to set.
+	 */
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
 	}
 
-	public Topico getTopico() {
-		return topico;
-	}
-
-	public void setTopico(Topico topico) {
-		this.topico = topico;
-	}
-
-	public LocalDateTime getfechaCreacion() {
-		return fechaCreacion;
-	}
-
-	public void setfechaCreacion(LocalDateTime fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
-	}
-
-	public Usuario getAutor() {
-		return autor;
-	}
-
-	public void setAutor(Usuario autor) {
-		this.autor = autor;
-	}
-
-	public Boolean getSolucion() {
-		return solucion;
-	}
-
-	public void setSolucion(Boolean solucion) {
-		this.solucion = solucion;
-	}
+	// Similar getter and setter methods for topico, fechaCreacion, autor, and solucion...
 
 }

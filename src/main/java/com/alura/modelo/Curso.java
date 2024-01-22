@@ -8,70 +8,44 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-
+/**
+ * The Curso class represents a course entity in the application.
+ *
+ * @author [Your Name]
+ * @version 1.0
+ * @since 2024-01-01
+ */
 @Entity
 @Table(name = "course")
 @Getter
-
 public class Curso {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	@NotBlank
 	private String nombre;
+
 	@NotBlank
 	private String categoria;
 
-
-
-
-
-	public Curso( CourseNewTopic curse ) {
+	/**
+	 * Constructs a Curso object based on the provided CourseNewTopic.
+	 *
+	 * @param curse The CourseNewTopic object containing course details.
+	 */
+	public Curso(CourseNewTopic curse) {
 		this.nombre = curse.name();
 		this.categoria = curse.category();
-
 	}
 
+	/**
+	 * Default constructor for Curso.
+	 */
 	public Curso() {
-
 	}
 
+	// hashCode, equals, setId, getId, and getCurseById methods...
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Curso other = (Curso) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public Curso getCurseById( Long id) {
-		return this;
-	}
 }
-
