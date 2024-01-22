@@ -2,16 +2,12 @@
 
 Welcome to our Foro-Alura!
 
-The Alura Forum serves as a space where all Alura platform students can post their questions about specific courses. This magical place is filled with abundant learning opportunities and collaboration among students, instructors, and moderators.
+The Alura Forum serves as a space where all Alura platform students can post their questions about specific courses. This magical place is filled with abundant learning opportunities and collaboration among students, instructors, and moderators
 
-Now that we know what the forum is for and how it looks, let's dive into how it works behind the scenes. Where is the information stored? How are data processed to associate a topic with a response, or how are users related to the responses in a topic?
-
-Our challenge is to replicate this process at the backend level, creating a REST API using Spring.
-
-I use the DTO pattern to create the API, and I use the Spring Data JPA to persist the data in a MySQL database.
-The records set the types of elements that receive the data, and the DTOs are the objects that will be sent to the API.
-And the Repository is the interface that will be responsible for the persistence of the data.
-Besides that the model is the entity that will be persisted in the database.
+I use the DTO and MVC pattern to create the API, and I use the Spring Data JPA to persist the data in a MySQL database.
+The records set the types of elements that receive the data, DTOs are the objects that will be sent to the API.
+The Repository is the interface that will be responsible for the persistence of the data.
+Besides that, the model is the entity that will be persisted in the database.
 ## Project Overview
 
 Our API will specifically focus on topics and must allow users to:
