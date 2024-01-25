@@ -2,7 +2,7 @@
 
 Welcome to our Foro-Alura!
 
-The Alura Forum serves as a space where all Alura platform students can post their questions about specific courses. This magical place is filled with abundant learning opportunities and collaboration among students, instructors, and moderators
+The Alura Forum serves as a space where all Alura platform students can post their questions about specific courses. This magical place is filled with abundant learning opportunities and collaboration among students, instructors, and moderators.
 
 I use the DTO and MVC pattern to create the API, and I use the Spring Data JPA to persist the data in a MySQL database.
 The records set the types of elements that receive the data, DTOs are the objects that will be sent to the API.
